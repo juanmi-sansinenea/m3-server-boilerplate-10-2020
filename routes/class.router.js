@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // GET '/api/classes'		 => to get all classes
 router.get("/classes", (req, res, next) => {
     Class.find()
-    //.populate(["comments"])
+    //.populate('comments');
       .then((allClasses) => {
         res
           .status(200) // ok
@@ -36,7 +36,7 @@ router.post("/classes", (req, res, next) => {
       });
   });
 
-//GET '/api/classes/:classId'		 => to get a specific classes by Id
+//GET '/api/classes/:classId'		 => to get a specific class by Id
 router.get("/classes/:classId", (req, res) => {
     const { classId } = req.params;
     if ( !mongoose.Types.ObjectId.isValid(classId)) {

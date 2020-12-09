@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     author: {type: Schema.Types.ObjectId, ref: "User", required: true}, // <-- it's probably a good idea to store req.session.currentUser as the autor
-    body: {type: String, rquired: true},
+    commentBody: {type: String, required: true},
     replies: [{type: Schema.Types.ObjectId, ref: "Reply"}],
   }, {
     timestamps: {

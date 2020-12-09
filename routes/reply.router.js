@@ -5,7 +5,7 @@ const Reply = require("../models/reply.model");
 const Comment = require("../models/comment.model");
 const mongoose = require('mongoose');
 
-// POST '/api/replies'    => to post new a reply to a comment 
+// POST '/api/replies'    => to post a new reply to a comment 
 router.post("/replies", (req, res, next) => {
     const { replyBody, commentId } = req.body;
     const author = req.session.currentUser;
@@ -22,8 +22,6 @@ router.post("/replies", (req, res, next) => {
           .json(err);
       });
   });
-
-
 
 
 module.exports = router;
