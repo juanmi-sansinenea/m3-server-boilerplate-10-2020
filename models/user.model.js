@@ -8,7 +8,7 @@ const userSchema = new Schema({
   email: {type: String},
   city: {type:String},
   classes: [{type: Schema.Types.ObjectId, ref: "Class"}],
-  isInstructor: {type: Boolean},
+  isInstructor: {type: Boolean, default: false},
   followers: [{type: Schema.Types.ObjectId, ref: "User"}],
   following: [{type: Schema.Types.ObjectId, ref: "User"}],
 }, {

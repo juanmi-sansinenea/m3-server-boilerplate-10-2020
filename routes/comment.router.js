@@ -78,7 +78,7 @@ router.put('/comments/:commentId', (req, res) => {
     Comment.findByIdAndUpdate( commentId, { commentBody })
       .then(() => {
         res
-          .status(200)
+          .status(201)
           .send();
       })
       .catch(err => {

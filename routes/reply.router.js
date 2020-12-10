@@ -95,7 +95,7 @@ router.put('/replies/:replyId', (req, res) => {
     Reply.findByIdAndUpdate( replyId, { replyBody })
       .then(() => {
         res
-          .status(200)
+          .status(201)
           .send();
       })
       .catch(err => {
