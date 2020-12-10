@@ -89,7 +89,7 @@ router.post('/login', isNotLoggedIn, validationLogin, (req, res, next) => {
 
 
 // GET '/auth/logout'
-router.get('/logout',  isLoggedIn, (req, res, next) => {
+router.post('/logout',  isLoggedIn, (req, res, next) => {
   req.session.destroy( function(err){
     if (err) {
       return next(err);

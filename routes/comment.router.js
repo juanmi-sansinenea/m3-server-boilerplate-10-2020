@@ -58,7 +58,7 @@ router.delete("/comments/:commentId", (req, res, next) => {
         .then(() => {
         res
           .status(202)
-          .send(`Document ${commentId} was removed successfully.`);
+          .send(`Comment ${commentId} was removed successfully.`);
         })
         .catch(err => {
             res.json(err);
