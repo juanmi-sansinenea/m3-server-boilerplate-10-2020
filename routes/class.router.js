@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // GET '/api/classes'		 => to get all classes
 router.get("/classes", (req, res, next) => {
     Class.find()
-    //.populate('comments');
+      .populate('instructor')
       .then((allClasses) => {
         res
           .status(200) // ok
