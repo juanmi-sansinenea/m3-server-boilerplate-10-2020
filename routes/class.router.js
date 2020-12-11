@@ -49,6 +49,7 @@ router.get("/classes/:classId", (req, res) => {
     Class
       .findById( classId )
       .populate('comments')
+      .populate('instructor')
       .then( (foundClass) => {
         res.status(200).json(foundClass);  // OK
       })
