@@ -6,6 +6,10 @@ const classSchema = new Schema({
     instructor: {type: Schema.Types.ObjectId, ref: "User", required: true},
     scheduled: {type: Date, required: true},
     duration: {type: Number, required: true},
+    targetedMessage: {
+      user: {type: String},
+      message: {type: String}
+    },
     comments: [{type: Schema.Types.ObjectId, ref: "Comment"}],
   }, {
   timestamps: {

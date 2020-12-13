@@ -22,8 +22,9 @@ router.get("/classes", (req, res, next) => {
 
 // POST '/api/classes'    => to post a new class !! To be able te create classes manually on Postman
 router.post("/classes", (req, res, next) => {
-    const { classType, instructor, scheduled, duration, comments } = req.body;
-    Class.create({ classType, instructor, scheduled, duration, comments: [] })
+    const { classType, instructor, scheduled, duration, message, comments } = req.body;
+    const user = req.session.currentUser;
+    Class.create({ classType, instructor, scheduled, duration, targetedMessage: {user, message}, comments: [] })
       .then((createdClass) => {
         res
           .status(201) // created
