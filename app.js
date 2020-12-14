@@ -33,7 +33,9 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN],
+    origin: [process.env.PUBLIC_DOMAIN,
+    'http://aora-social.herokuapp.com',
+    'https://aora-social.herokuapp.com'],
   }),
 );
 
@@ -67,7 +69,12 @@ app.use('/api', classRouter);
 app.use('/api', commentRouter);
 app.use('/api', replyRouter);
 
-
+// ROUTE FOR SERVING REACT APP (index.html)  /// <--- was introduced here with the first DEPLOYMENT
+// If I undesrtood well, this makes both localhost:5000 and localhost:3000 requestes point to the same URL
+app.use((req, res, next) => {
+  // If no previous routes match the request, send back the React app.
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 // ERROR HANDLING
 //  Catch 404 and respond with error message
