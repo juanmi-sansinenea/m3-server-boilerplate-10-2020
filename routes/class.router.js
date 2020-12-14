@@ -24,7 +24,7 @@ router.get("/classes", (req, res, next) => {
 router.post("/classes", (req, res, next) => {
     const { classType, instructor, scheduled, duration, message, comments } = req.body;
     const user = req.session.currentUser;
-    Class.create({ classType, instructor, scheduled, duration, targetedMessage: {user, message}, comments: [] })
+    Class.create({ classType, instructor, scheduled, duration, comments: [] })
       .then((createdClass) => {
         res
           .status(201) // created
