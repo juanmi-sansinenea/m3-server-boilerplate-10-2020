@@ -49,7 +49,9 @@ router.get("/classes/:classId", (req, res) => {
   
     Class
       .findById( classId )
-      .populate('comments')
+      //.populate('comments')
+      //.populate([{path: 'comments', populate:{path: 'author', populate:{path: 'username'}}}])
+      .populate([{path: 'comments', populate:{path: 'author' }}])
       .populate('instructor')
       .then( (foundClass) => {
         res.status(200).json(foundClass);  // OK
